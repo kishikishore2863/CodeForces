@@ -2,6 +2,10 @@
 // Created by Kishi Kishore N on 20/03/26.
 //
 #include <iostream>
+#include <algorithm>
+#include <cmath>
+
+#include<numeric>
 using namespace std;
 
 int gcd(int a, int b);
@@ -16,19 +20,26 @@ int main() {
             cin>>arr[i];
         }
 
-        int res = arr[0];
 
-        for (int i=1; i<n; i++) {
-            res = gcd(res,arr[i]);
+        int flag = 0;
+        for (int i = 0; i < n; i++){
+            for (int j = i + 1; j < n; j++){
+                if (gcd(arr[i], arr[j]) <= 2){
+                    flag = 1;
+                }
+            }
         }
-        cout<<res<<endl;
+
+        if (flag == 0)
+            cout << "NO" << endl;
+        else
+            cout << "YES" << endl;
     }
-    // int res = gcd(3,6);
 
     return 0;
 }
 
 int gcd(int a, int b) {
-    if (a == 0)return b;
+    if (b == 0)return a;
     return gcd(b,a%b);
 }
