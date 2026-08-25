@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     count_nice_subarray
+relocations:     []
+...
